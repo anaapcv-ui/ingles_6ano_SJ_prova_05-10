@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulado — Inglês 6º ano | Sala de Situação 🚨</title>
+<style>
+  :root{
+    --bg:#0e1726; --bg2:#13203a; --card:#172a44; --card2:#20324f;
+    --cian:#22d3ee; --amar:#f5a524; --red:#ef4444;
+    --ink:#e6eefb; --ink2:#94a9c9; --line:#2b3f5e; --ok:#34d399;
+    --navy:#0a1120;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px}
+  .wrap{max-width:820px;margin:0 auto;padding:16px}
+  header.top{background:var(--navy);border:1px solid var(--line);border-top:6px solid var(--red);border-radius:16px;padding:22px;margin:12px 0;text-align:center}
+  header.top h1{margin:0 0 6px;font-size:25px;color:#fff}
+  header.top p{margin:3px 0;color:#cfe0ff;font-size:15px}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  nav.tabs a{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+  nav.tabs a.active{background:var(--red);border-color:var(--red);color:#fff}
+  .save-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13px;margin:10px 0}
+  .save-bar button{cursor:pointer;border:none;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
+  .btn-exp{background:#1e4d3a;color:#9af0c0} .btn-imp{background:#1e3a52;color:#9ad0f0} .btn-zero{background:#52222e;color:#ffb0c4}
+  #saveInfo{color:var(--ink2);margin-left:auto}
+  .q{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 17px;margin:13px 0}
+  .q .num{font-size:13px;color:var(--amar);font-weight:800}
+  .q .badge{font-size:11px;background:var(--card2);border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--ink2);margin-left:6px}
+  .q .enun{font-weight:600;margin:5px 0 10px;font-size:17px}
+  .opt{display:block;width:100%;text-align:left;background:var(--card2);border:1.5px solid var(--line);color:var(--ink);border-radius:10px;padding:10px 12px;margin:6px 0;cursor:pointer;font-size:16px}
+  .opt.sel{border-color:var(--cian);background:#163340}
+  .opt.ok{background:#10402f;border-color:var(--ok);color:#b6f5cf}
+  .opt.no{background:#401b1f;border-color:var(--red);color:#ffc0c0}
+  input.fill{background:var(--bg2);color:var(--ink);border:1.5px solid var(--line);border-radius:9px;padding:9px 11px;font-size:16px;width:220px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0}
+  .chip{background:var(--card2);border:1.5px solid var(--line);color:var(--ink);border-radius:9px;padding:7px 12px;cursor:pointer;font-size:16px}
+  .chip.used{opacity:.35;pointer-events:none}
+  .answer-line{min-height:40px;background:var(--bg2);border:1.5px dashed var(--cian);border-radius:9px;padding:8px 10px;margin:6px 0;font-size:16px;color:var(--cian)}
+  .mini{background:none;border:1px solid var(--line);color:var(--ink2);border-radius:8px;padding:4px 10px;cursor:pointer;font-size:13px}
+  .gab{margin-top:9px;border-radius:10px;padding:10px 12px;font-size:15px;display:none}
+  .gab.show{display:block}
+  .gab.c{background:#10402f;color:#b6f5cf;border:1px solid var(--ok)}
+  .gab.w{background:#3a1f22;color:#ffc4c4;border:1px solid var(--red)}
+  .corrigir{display:block;width:100%;background:var(--red);color:#fff;border:none;border-radius:14px;padding:15px;font-weight:900;font-size:19px;cursor:pointer;margin:16px 0}
+  .final{background:var(--card);border:2px solid var(--amar);border-radius:18px;padding:22px;margin:16px 0;text-align:center;display:none}
+  .final.show{display:block}
+  .final .code{font-size:26px;font-weight:900;color:var(--amar);letter-spacing:2px;margin:10px 0;background:var(--bg2);border-radius:10px;padding:10px}
+  .footer-nav{display:flex;justify-content:space-between;margin:20px 0;gap:10px;flex-wrap:wrap}
+  .footer-nav a{background:var(--red);color:#fff;text-decoration:none;border-radius:12px;padding:12px 18px;font-weight:800}
+  small.muted{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>📝 Simulado — Sala de Situação</h1>
+    <p><b>Inglês · 6º ano · Colégio São José</b></p>
+    <p>Unit 5 "I Am Aware!" · 25 questões · responda tudo e clique em <b>Corrigir</b></p>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">🏠 Início</a>
+    <a href="leitura-guiada.html">📡 Leitura Guiada</a>
+    <a href="quiz.html">🎯 Quiz</a>
+    <a href="resumo.html">🗺️ Resumo</a>
+    <a class="active" href="simulado.html">📝 Simulado</a>
+  </nav>
+
+  <div class="save-bar">
+    <button class="btn-exp" onclick="exportar()">📥 Exportar</button>
+    <button class="btn-imp" onclick="abrirImport()">📤 Importar</button>
+    <button class="btn-zero" onclick="zerar()">🗑️ Zerar tudo</button>
+    <span id="saveInfo">—</span>
+  </div>
+
+  <div id="sim"></div>
+
+  <button class="corrigir" onclick="corrigir()">✅ Corrigir o simulado</button>
+
+  <div class="final" id="final">
+    <h2>📊 Resultado</h2>
+    <p><b id="fScore"></b></p>
+    <p>Mostre este código para um responsável ver o relatório:</p>
+    <div class="code" id="fCode">SIM-00-XX</div>
+    <p id="fMsg"></p>
+  </div>
+
+  <div class="footer-nav">
+    <a href="resumo.html">← Voltar ao Resumo</a>
+    <a href="index.html">🏠 Início</a>
+  </div>
+  <p style="text-align:center"><small class="muted">Feito com carinho para o(a) jovem aprendiz. Unit 5 do livro de Inglês (Make Your Mark 6 · São José).</small></p>
+</div>
+
+<div id="importModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:center;justify-content:center">
+  <div style="background:var(--card);border:1.5px solid var(--amar);border-radius:16px;padding:20px;max-width:480px;width:92%">
+    <h3 style="margin-top:0">📤 Importar</h3>
+    <textarea id="importText" style="width:100%;min-height:110px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px"></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn-imp" onclick="fazerImport()">Importar</button>
+      <button class="btn-zero" onclick="fecharImport()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function mulberry32(a){return function(){a|=0;a=a+0x6D2B79F5|0;let t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296;};}
+function shuffle(arr,seed){const r=mulberry32(seed);const a=arr.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(r()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function norm(s){ return (s||"").toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s]/g,'').replace(/\s+/g,' ').trim(); }
+
+// ===== 25 QUESTÕES (mc / fill / order) — conteúdo da Unit 5 =====
+const QS=[
+ // --- MULTIPLE CHOICE (15) ---
+ {type:"mc", enun:"O que significa <b>drought</b>?", opts:[{t:"seca",ok:true},{t:"enchente",ok:false},{t:"incêndio florestal",ok:false},{t:"vento forte",ok:false}], fb:"<b>drought</b> = seca."},
+ {type:"mc", enun:"O que significa <b>flood</b>?", opts:[{t:"enchente / inundação",ok:true},{t:"seca",ok:false},{t:"neve",ok:false},{t:"calota polar",ok:false}], fb:"<b>flood</b> = enchente."},
+ {type:"mc", enun:"O que significa <b>wildfire</b>?", opts:[{t:"incêndio florestal",ok:true},{t:"enchente",ok:false},{t:"seca",ok:false},{t:"maremoto",ok:false}], fb:"<b>wildfire</b> = incêndio florestal."},
+ {type:"mc", enun:"O que significa <b>global warming</b>?", opts:[{t:"aquecimento global",ok:true},{t:"nível do mar",ok:false},{t:"derretimento do gelo",ok:false},{t:"chuva forte",ok:false}], fb:"<b>global warming</b> = aquecimento global."},
+ {type:"mc", enun:"O que é o <b>melting ice cap</b>?", opts:[{t:"derretimento das calotas polares",ok:true},{t:"elevação do nível do mar",ok:false},{t:"seca de um rio",ok:false},{t:"incêndio na floresta",ok:false}], fb:"<b>melting ice cap</b> = derretimento das calotas polares."},
+ {type:"mc", enun:"O que é o <b>rising sea level</b>?", opts:[{t:"elevação do nível do mar",ok:true},{t:"aquecimento do ar",ok:false},{t:"perda de plantações",ok:false},{t:"doença",ok:false}], fb:"<b>rising sea level</b> = elevação do nível do mar."},
+ {type:"mc", enun:"Qual destas é uma <b>consequência</b> (consequence) de um desastre?", opts:[{t:"illness (doença)",ok:true},{t:"activist (ativista)",ok:false},{t:"protest (protesto)",ok:false},{t:"revolution (revolução)",ok:false}], fb:"<b>illness</b> (doença) é uma consequência."},
+ {type:"mc", enun:"O que significa <b>loss of property</b>?", opts:[{t:"perda de bens",ok:true},{t:"perda de plantações",ok:false},{t:"perda de habitats",ok:false},{t:"destruição completa",ok:false}], fb:"<b>loss of property</b> = perda de bens/propriedade."},
+ {type:"mc", enun:"Um <b>climate activist</b> é alguém que…", opts:[{t:"luta pelo meio ambiente",ok:true},{t:"estuda os planetas",ok:false},{t:"planta árvores por dinheiro",ok:false},{t:"faz previsão do tempo na TV",ok:false}], fb:"<b>activist</b> = ativista; luta pelo meio ambiente."},
+ {type:"mc", enun:"Complete: 'I ______ a student.'", opts:[{t:"am",ok:true},{t:"is",ok:false},{t:"are",ok:false},{t:"be",ok:false}], fb:"Com <b>I</b> → sempre <b>am</b>."},
+ {type:"mc", enun:"Complete: 'She ______ aware of the dangers.'", opts:[{t:"is",ok:true},{t:"am",ok:false},{t:"are",ok:false},{t:"be",ok:false}], fb:"Com <b>she</b> (singular) → <b>is</b>."},
+ {type:"mc", enun:"Complete: 'The glaciers ______ melting.'", opts:[{t:"are",ok:true},{t:"is",ok:false},{t:"am",ok:false},{t:"be",ok:false}], fb:"'the glaciers' é plural → <b>are</b>."},
+ {type:"mc", enun:"Qual é a PERGUNTA certa?", opts:[{t:"Is it dangerous to go outside?",ok:true},{t:"It is dangerous to go outside?",ok:false},{t:"Are it dangerous to go outside?",ok:false},{t:"It dangerous is to go outside?",ok:false}], fb:"Pergunta: verbo antes do sujeito → <b>Is it</b> dangerous...?"},
+ {type:"mc", enun:"Short answer: 'Is your teacher informed about the environment?' — qual NEGATIVA está certa?", opts:[{t:"No, he isn't.",ok:true},{t:"No, he not is.",ok:false},{t:"No, he aren't.",ok:false},{t:"No, he don't.",ok:false}], fb:"is + not = <b>isn't</b> → 'No, he isn't.'"},
+ {type:"mc", enun:"Qual é a NEGATIVA certa de 'We are ready for a flood.'?", opts:[{t:"We aren't ready for a flood.",ok:true},{t:"We not are ready for a flood.",ok:false},{t:"We isn't ready for a flood.",ok:false},{t:"We don't ready for a flood.",ok:false}], fb:"are + not = <b>aren't</b>."},
+ // --- FILL IN THE BLANK (5) ---
+ {type:"fill", enun:"Complete com o to be certo: 'Floods and droughts ______ effects of climate change.'", resp:["are"], fb:"Sujeito plural → <b>are</b>."},
+ {type:"fill", enun:"Complete com o to be certo: 'I ______ a climate activist.'", resp:["am"], fb:"Com I → <b>am</b>."},
+ {type:"fill", enun:"Complete com o to be certo: 'He ______ aware of the dangers.'", resp:["is"], fb:"Com he → <b>is</b>."},
+ {type:"fill", enun:"Complete na NEGATIVA (forma curta): 'Recycling ______ a waste of time.'", resp:["isn't","is not"], fb:"is + not → <b>isn't</b> (ou 'is not')."},
+ {type:"fill", enun:"Complete com o to be certo: 'The sea level ______ rising.'", resp:["is"], fb:"'the sea level' é singular → <b>is</b>."},
+ // --- REORDER (5) ---
+ {type:"order", enun:"Ordene para formar a frase: (eu sou um ativista do clima).", words:["I","am","a","climate","activist"], ans:"i am a climate activist", fb:"Frase certa: <b>I am a climate activist</b>."},
+ {type:"order", enun:"Ordene para formar a PERGUNTA: (você é um ativista?).", words:["are","you","an","activist"], ans:"are you an activist", fb:"Pergunta certa: <b>Are you an activist?</b>"},
+ {type:"order", enun:"Ordene para formar a NEGATIVA: (ela não é cantora).", words:["she","is","not","a","singer"], ans:"she is not a singer", fb:"Frase certa: <b>She is not a singer</b>."},
+ {type:"order", enun:"Ordene para formar a frase: (o aquecimento global é um problema).", words:["global","warming","is","a","problem"], ans:"global warming is a problem", fb:"Frase certa: <b>Global warming is a problem</b>."},
+ {type:"order", enun:"Ordene para formar a frase: (nós somos a equipe ecológica).", words:["we","are","the","eco","team"], ans:"we are the eco team", fb:"Frase certa: <b>We are the eco team</b>."}
+];
+
+const KEY="ing6sj_dis_vtb_simulado_v1";
+let store={resp:{},order:{},acertos:0,respondidas:0,total:QS.length,yy:null,corrigido:false};
+const mem={};
+function load(){
+  try{const r=localStorage.getItem(KEY); if(r) store=JSON.parse(r);}catch(e){try{store=mem[KEY]?JSON.parse(mem[KEY]):store;}catch(_){}}
+  if(!store.resp) store.resp={}; if(!store.order) store.order={};
+  store.total=QS.length;
+  if(!store.yy){ const L="ABCDEFGHJKLMNPQRSTUVWXYZ"; store.yy=L[Math.floor(Math.random()*L.length)]+L[Math.floor(Math.random()*L.length)]; }
+}
+function save(){
+  store.quando=new Date().toLocaleString('pt-BR');
+  const raw=JSON.stringify(store);
+  try{localStorage.setItem(KEY,raw);}catch(e){mem[KEY]=raw;}
+  const el=document.getElementById('saveInfo'); if(el) el.textContent="💾 Salvo "+store.quando;
+}
+
+function render(){
+  const cont=document.getElementById('sim'); cont.innerHTML="";
+  QS.forEach((q,qi)=>{
+    const div=document.createElement('div'); div.className="q";
+    const badge = q.type==="mc"?"múltipla escolha":(q.type==="fill"?"completar":"ordenar");
+    let html=`<div class="num">Question ${qi+1} de ${QS.length} <span class="badge">${badge}</span></div>`;
+    html+=`<div class="enun">${q.enun}</div>`;
+    if(q.type==="mc"){
+      const opts=shuffle(q.opts, qi*131+5);
+      const chosen=store.resp[qi];
+      opts.forEach((o,oi)=>{
+        let cls="opt";
+        if(store.corrigido){ if(o.ok) cls+=" ok"; else if(o.t===chosen) cls+=" no"; }
+        else if(o.t===chosen) cls+=" sel";
+        html+=`<button class="${cls}" ${store.corrigido?'disabled':''} onclick="pick(${qi},'${o.t.replace(/'/g,"\\'").replace(/"/g,'&quot;')}')">${String.fromCharCode(97+oi)}) ${o.t}</button>`;
+      });
+    } else if(q.type==="fill"){
+      const v=store.resp[qi]||"";
+      html+=`<input class="fill" id="f${qi}" value="${(v+'').replace(/"/g,'&quot;')}" ${store.corrigido?'disabled':''} oninput="typeFill(${qi})" placeholder="escreva aqui">`;
+    } else if(q.type==="order"){
+      const chosenArr=store.order[qi]||[];
+      const words=shuffle(q.words, qi*149+3);
+      html+=`<div class="answer-line" id="al${qi}">${chosenArr.length?chosenArr.join(' '):'<span style="color:var(--ink2)">clique nas palavras na ordem certa…</span>'}</div>`;
+      html+=`<div class="chips">`;
+      words.forEach((w,wi)=>{
+        const used = countUsed(chosenArr,w) > countBefore(words,wi,w) ? true:false;
+        html+=`<button class="chip${used?' used':''}" ${store.corrigido?'disabled':''} onclick="addWord(${qi},'${w.replace(/'/g,"\\'")}')">${w}</button>`;
+      });
+      html+=`</div>`;
+      if(!store.corrigido) html+=`<button class="mini" onclick="clearOrder(${qi})">↺ limpar</button>`;
+    }
+    html+=`<div class="gab" id="g${qi}"></div>`;
+    div.innerHTML=html;
+    cont.appendChild(div);
+  });
+}
+
+function countUsed(arr,w){ return arr.filter(x=>x===w).length; }
+function countBefore(words,idx,w){ let c=0; for(let i=0;i<idx;i++){ if(words[i]===w) c++; } return c; }
+
+function pick(qi,txt){ if(store.corrigido) return; store.resp[qi]=txt; save(); render(); }
+function typeFill(qi){ store.resp[qi]=document.getElementById('f'+qi).value; save(); }
+function addWord(qi,w){ if(store.corrigido) return; if(!store.order[qi]) store.order[qi]=[]; store.order[qi].push(w); save(); render(); }
+function clearOrder(qi){ store.order[qi]=[]; save(); render(); }
+
+function isCorrect(q,qi){
+  if(q.type==="mc"){ const o=q.opts.find(x=>x.t===store.resp[qi]); return !!(o&&o.ok); }
+  if(q.type==="fill"){ return q.resp.some(r=>norm(r)===norm(store.resp[qi])); }
+  if(q.type==="order"){ return norm((store.order[qi]||[]).join(' '))===norm(q.ans); }
+  return false;
+}
+
+function pintarGabaritos(){
+  QS.forEach((q,qi)=>{
+    const ok=isCorrect(q,qi);
+    const g=document.getElementById('g'+qi);
+    if(!g) return;
+    g.className="gab show "+(ok?"c":"w");
+    let extra="";
+    if(!ok){
+      if(q.type==="fill") extra=" (resposta certa: <b>"+q.resp[0]+"</b>)";
+      if(q.type==="order") extra=" (ordem certa: <b>"+q.ans+"</b>)";
+    }
+    g.innerHTML=(ok?"✅ Correct! ":"❌ Revise. ")+q.fb+extra;
+  });
+}
+
+function corrigir(){
+  let faltando=0;
+  QS.forEach((q,qi)=>{
+    if(q.type==="order"){ if(!(store.order[qi]&&store.order[qi].length===q.words.length)) faltando++; }
+    else { const v=store.resp[qi]; if(v==null||(''+v).trim()==="") faltando++; }
+  });
+  if(faltando>0){ alertaFalta(faltando); return; }
+  store.corrigido=true;
+  let ac=0;
+  QS.forEach((q,qi)=>{ if(isCorrect(q,qi)) ac++; });
+  store.acertos=ac; store.respondidas=QS.length;
+  save(); render();
+  pintarGabaritos();
+  const xx=String(ac).padStart(2,'0');
+  document.getElementById('fScore').textContent=ac+" de "+QS.length+" acertos";
+  document.getElementById('fCode').textContent="SIM-"+xx+"-"+store.yy;
+  const msg=document.getElementById('fMsg');
+  msg.textContent = ac>=20? "🌟 Excelente! Você está pronto(a)." : (ac>=13? "👍 Bom! Revise os erros no gabarito acima." : "💪 Vale reler o Resumo e a Leitura e tentar de novo.");
+  document.getElementById('final').classList.add('show');
+  document.getElementById('final').scrollIntoView({behavior:'smooth'});
+}
+
+function alertaFalta(n){
+  const f=document.getElementById('final');
+  f.classList.add('show');
+  document.getElementById('fScore').textContent="Ainda faltam "+n+" questão(ões) para responder.";
+  document.getElementById('fCode').textContent="— — —";
+  document.getElementById('fMsg').textContent="Responda todas antes de corrigir. 💪";
+  f.scrollIntoView({behavior:'smooth'});
+}
+
+function exportar(){ const blob=new Blob([JSON.stringify(store,null,2)],{type:"application/json"}); const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download="simulado-ingles-6ano.json"; a.click(); }
+function abrirImport(){ document.getElementById('importModal').style.display="flex"; }
+function fecharImport(){ document.getElementById('importModal').style.display="none"; }
+function fazerImport(){ try{ store=JSON.parse(document.getElementById('importText').value); if(!store.resp)store.resp={}; if(!store.order)store.order={}; save(); render(); fecharImport(); if(store.corrigido){ pintarGabaritos(); } }catch(e){ document.getElementById('importText').value="⚠️ Texto inválido.\n\n"+document.getElementById('importText').value; } }
+function zerar(){ const yy=store.yy; store={resp:{},order:{},acertos:0,respondidas:0,total:QS.length,yy:yy,corrigido:false}; try{localStorage.removeItem(KEY);}catch(e){} save(); render(); document.getElementById('final').classList.remove('show'); }
+
+load(); render();
+if(store.quando){ document.getElementById('saveInfo').textContent="💾 Salvo "+store.quando; }
+if(store.corrigido){ pintarGabaritos();
+  const xx=String(store.acertos).padStart(2,'0');
+  document.getElementById('fScore').textContent=store.acertos+" de "+QS.length+" acertos";
+  document.getElementById('fCode').textContent="SIM-"+xx+"-"+store.yy;
+  document.getElementById('final').classList.add('show');
+}
+</script>
+</body>
+</html>

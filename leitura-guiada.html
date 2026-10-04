@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leitura Guiada — Inglês 6º ano | Sala de Situação 🚨</title>
+<style>
+  :root{
+    --bg:#0e1726; --bg2:#13203a; --card:#172a44; --card2:#20324f;
+    --cian:#22d3ee; --amar:#f5a524; --red:#ef4444;
+    --ink:#e6eefb; --ink2:#94a9c9; --line:#2b3f5e; --ok:#34d399; --warn:#f5a524;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px}
+  .wrap{max-width:900px;margin:0 auto;padding:16px}
+  header.top{background:linear-gradient(135deg,#172a44,#22d3ee 170%);border:1px solid var(--line);border-radius:20px;padding:24px 22px;margin:12px 0;text-align:center}
+  header.top h1{margin:0 0 6px;font-size:27px;color:#fff}
+  header.top p{margin:3px 0;color:#dbe9ff;opacity:.95;font-size:15px}
+  .badge{display:inline-block;background:rgba(255,255,255,.14);border-radius:999px;padding:4px 12px;font-size:14px;margin-top:8px}
+  nav.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+  nav.tabs a{background:var(--card);border:1.5px solid var(--line);border-radius:999px;padding:8px 14px;text-decoration:none;color:var(--ink);font-weight:600;font-size:14px}
+  nav.tabs a.active{background:var(--cian);border-color:var(--cian);color:#04222b}
+  .howto{background:var(--card);border-left:6px solid var(--amar);border-radius:14px;padding:14px 18px;margin:10px 0}
+  .howto h2{margin:0 0 6px;color:var(--amar);font-size:20px}
+  .save-bar{display:flex;flex-wrap:wrap;align-items:center;gap:8px;background:var(--card);border:1px dashed var(--line);border-radius:14px;padding:10px 14px;font-size:13px;margin:10px 0}
+  .save-bar button{cursor:pointer;border:none;border-radius:10px;padding:8px 12px;font-weight:700;font-size:13px}
+  .btn-exp{background:#1e4d3a;color:#9af0c0} .btn-imp{background:#1e3a52;color:#9ad0f0} .btn-zero{background:#52222e;color:#ffb0c4}
+  #saveInfo{color:var(--ink2);margin-left:auto}
+  .btn-audio{background:var(--cian);border:none;color:#04222b;border-radius:8px;padding:2px 8px;font-size:13px;cursor:pointer;font-weight:900;margin-left:4px}
+  .block{border:1px solid var(--line);border-radius:16px;margin:16px 0;overflow:hidden;background:var(--card)}
+  .block.locked{opacity:.5}
+  .block-head{padding:14px 18px;font-weight:700;font-size:19px;color:#04222b;display:flex;align-items:center;gap:10px;cursor:pointer}
+  .block-body{padding:6px 18px 18px}
+  .block-status{margin-left:auto;font-size:14px;background:rgba(0,0,0,.18);border-radius:999px;padding:2px 10px;color:#04222b}
+  .h-cian{background:var(--cian)} .h-amar{background:var(--amar)} .h-red{background:var(--red);color:#fff} .h-red .block-status{color:#fff}
+  .txt{background:var(--card2);border-radius:12px;padding:12px 14px;margin:10px 0}
+  .txt p{margin:8px 0}
+  .keyword{background:#3a2e12;color:var(--amar);border-radius:5px;padding:0 4px;font-weight:700}
+  .completar{background:#0f3340;border:1px solid var(--cian);border-radius:12px;padding:12px 14px;margin:12px 0}
+  .completar .cq{font-weight:600;margin-bottom:8px}
+  .completar input{background:var(--bg2);color:var(--ink);border:1.5px solid var(--line);border-radius:8px;padding:7px 9px;font-size:16px;width:200px}
+  .completar button.ck{background:var(--cian);border:none;color:#04222b;border-radius:9px;padding:7px 13px;font-weight:800;cursor:pointer;margin-left:6px}
+  .completar .fb{margin-top:8px;font-size:15px;display:none}
+  .completar .fb.ok{display:block;color:var(--ok)} .completar .fb.no{display:block;color:var(--red)}
+  .q{background:var(--card2);border-radius:12px;padding:12px 14px;margin:12px 0;border:1px solid var(--line)}
+  .q.red{border:2px solid var(--red);background:#3a1f22}
+  .q .tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;padding:2px 8px;margin-bottom:6px}
+  .tag-con{background:#16324a;color:#9ad0f0} .tag-apl{background:#1e4d3a;color:#9af0c0}
+  .q label{font-weight:600;display:block;margin-bottom:6px}
+  .q textarea{width:100%;min-height:62px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px;font-family:inherit;font-size:16px;resize:vertical}
+  .alert{border-radius:10px;padding:10px 12px;margin:8px 0;font-size:15px;display:none}
+  .alert.copy{background:#3a2e12;border:1px solid var(--warn);color:#ffe9a8;display:block}
+  .alert.redwarn{background:#3a1f22;border:1px solid var(--red);color:#ffc4c4;display:block}
+  .modelo{display:none;margin-top:10px;background:#0f3340;border:1px solid var(--cian);border-radius:10px;padding:10px 12px}
+  .modelo.show{display:block}
+  .modelo .mtitle{font-weight:700;color:var(--cian);margin-bottom:4px}
+  .chk{margin-top:8px}
+  .chk .cline{display:flex;align-items:center;gap:8px;margin:6px 0;flex-wrap:wrap}
+  .chk .cline span{flex:1;min-width:180px}
+  .chk button{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;padding:4px 12px;cursor:pointer;font-weight:600}
+  .chk button.sel-sim{background:var(--ok);color:#05321f;border-color:var(--ok)}
+  .chk button.sel-nao{background:var(--red);color:#fff;border-color:var(--red)}
+  .conferir{background:var(--cian);color:#04222b;border:none;border-radius:12px;padding:10px 18px;font-weight:800;font-size:16px;cursor:pointer;margin-top:8px}
+  .conferir:disabled{background:#555;cursor:not-allowed}
+  .panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 20px;margin:14px 0}
+  .pegadinhas{border:1px solid var(--amar)}
+  .pegadinhas h2{color:var(--amar)}
+  .pegadinhas ol{margin:8px 0 0;padding-left:22px} .pegadinhas li{margin:8px 0}
+  table.cover{width:100%;border-collapse:collapse;margin-top:10px;font-size:14px}
+  table.cover th,table.cover td{border:1px solid var(--line);padding:8px;text-align:left}
+  table.cover th{background:var(--card2);color:var(--amar)}
+  .revisar{border:1px solid var(--red)} .revisar h2{color:var(--red)}
+  .footer-nav{display:flex;justify-content:space-between;margin:20px 0;gap:10px;flex-wrap:wrap}
+  .footer-nav a{background:var(--cian);color:#04222b;text-decoration:none;border-radius:12px;padding:12px 18px;font-weight:800}
+  small.muted{color:var(--ink2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <h1>📡 Leitura Guiada — Sala de Situação</h1>
+    <p><b>Inglês · 6º ano · Colégio São José</b></p>
+    <p>Unit 5 "I Am Aware!" · desastres naturais, consequências e o Verb To Be</p>
+    <span class="badge">📅 Prova: 05/10 · leia um painel de cada vez 🔊</span>
+  </header>
+
+  <nav class="tabs">
+    <a href="index.html">🏠 Início</a>
+    <a class="active" href="leitura-guiada.html">📡 Leitura Guiada</a>
+    <a href="quiz.html">🎯 Quiz</a>
+    <a href="resumo.html">🗺️ Resumo</a>
+    <a href="simulado.html">📝 Simulado</a>
+  </nav>
+
+  <div class="howto">
+    <h2>Como usar 👣</h2>
+    <p>Cada painel tem um <b>textinho em inglês com áudio</b> 🔊, uma atividade de <b>completar</b> e <b>3 perguntas</b>. Você <b>escreve</b> a resposta com as suas próprias palavras (não vale copiar!). Depois clica em <b>Conferir</b> para ver a resposta modelo e marcar se acertou. O próximo painel só abre quando você confere o anterior. No fim há uma caixa de <b>pegadinhas</b> e a tabela de cobertura. Tudo fica salvo sozinho. 💾</p>
+  </div>
+
+  <div class="save-bar">
+    <button class="btn-exp" onclick="exportar()">📥 Exportar</button>
+    <button class="btn-imp" onclick="abrirImport()">📤 Importar</button>
+    <button class="btn-zero" onclick="zerar()">🗑️ Zerar tudo</button>
+    <span id="saveInfo">—</span>
+  </div>
+
+  <div id="blocos"></div>
+
+  <div class="panel pegadinhas">
+    <h2>⚠️ 10 Pegadinhas que a prova adora</h2>
+    <ol>
+      <li><b>am só com "I":</b> é sempre <b>I am</b> — nunca "I is" nem "I are". Com he/she/it → <b>is</b>; com you/we/they → <b>are</b>.</li>
+      <li><b>is × are (sujeito plural):</b> "Floods and droughts <b>are</b> effects of climate change." Dois ou mais → <b>are</b>, não "is".</li>
+      <li><b>Pergunta = inverter:</b> o verbo vem ANTES do sujeito: <b>Are</b> you an activist? <b>Is</b> he aware? (não "You are...?").</li>
+      <li><b>Short answer afirmativa NÃO contrai:</b> "Yes, I <b>am</b>." (nunca "Yes, I'm."). Já a negativa contrai: "No, he <b>isn't</b>."</li>
+      <li><b>Negativas:</b> <b>isn't</b> = is not · <b>aren't</b> = are not. Com "I" usamos <b>I'm not</b> (não existe "amn't").</li>
+      <li><b>drought × flood</b> são quase opostos: <b>drought</b> = seca · <b>flood</b> = enchente. Não troque!</li>
+      <li><b>global warming</b> (aquecimento global) é a CAUSA; <b>wildfire</b> (incêndio) e <b>melting ice cap</b> (derretimento) são eventos/efeitos. Não confunda causa com evento.</li>
+      <li><b>rising sea level</b> = elevação do nível do mar (vem do degelo). Cuidado para não escrever "raising".</li>
+      <li><b>Consequências (p.90):</b> <b>illness</b> = doença · <b>loss of crops</b> = perda de plantações · <b>loss of property</b> = perda de bens. São coisas diferentes!</li>
+      <li><b>activist × protest × revolution:</b> o <b>activist</b> é a pessoa; o <b>protest</b> é o ato; a <b>revolution</b> é a grande mudança.</li>
+    </ol>
+  </div>
+
+  <div class="panel">
+    <h2 style="color:var(--amar)">🧭 Cobertura — Onde estudei cada assunto</h2>
+    <table class="cover">
+      <tr><th>Tópico da prova</th><th>Página do livro</th><th>Painel</th></tr>
+      <tr><td>Desastres naturais / eventos climáticos extremos (vocabulário)</td><td>p.86</td><td>Painel 1</td></tr>
+      <tr><td>Ativismo climático (activist, protest, revolution)</td><td>p.86</td><td>Painel 2</td></tr>
+      <tr><td>Consequências dos desastres + sistema de alerta</td><td>p.90</td><td>Painel 3</td></tr>
+      <tr><td>Verb To Be — formas afirmativas (am/is/are)</td><td>p.91</td><td>Painel 4</td></tr>
+      <tr><td>Verb To Be — perguntas e respostas curtas</td><td>p.91</td><td>Painel 5</td></tr>
+      <tr><td>Verb To Be — formas negativas (isn't/aren't)</td><td>p.94</td><td>Painel 6</td></tr>
+    </table>
+  </div>
+
+  <div class="panel revisar" id="revisarBox" style="display:none">
+    <h2>🔁 Para revisar</h2>
+    <p>Estas perguntas ficaram marcadas em vermelho (resposta muito parecida com o texto) ou com algum "não" na autoavaliação. Vale reler o painel e reescrever com as suas palavras!</p>
+    <ul id="revisarList"></ul>
+  </div>
+
+  <div class="footer-nav">
+    <a href="index.html">🏠 Início</a>
+    <a href="quiz.html">🎯 Ir para o Quiz →</a>
+  </div>
+  <p style="text-align:center"><small class="muted">Feito com carinho para o(a) jovem aprendiz. Conteúdo real da Unit 5 do livro de Inglês (Make Your Mark 6 · São José).</small></p>
+</div>
+
+<div id="importModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:99;align-items:center;justify-content:center">
+  <div style="background:var(--card);border:1.5px solid var(--amar);border-radius:16px;padding:20px;max-width:480px;width:92%">
+    <h3 style="margin-top:0">📤 Importar respostas</h3>
+    <p style="font-size:14px">Cole aqui o texto que você exportou antes:</p>
+    <textarea id="importText" style="width:100%;min-height:110px;background:var(--bg2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px"></textarea>
+    <div style="margin-top:10px;display:flex;gap:8px">
+      <button class="btn-imp" onclick="fazerImport()">Importar</button>
+      <button class="btn-zero" onclick="fecharImport()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== ÁUDIO (en-US, rate=1) =====
+function speak(txt){
+  if(!('speechSynthesis' in window)) return;
+  window.speechSynthesis.cancel();
+  const u=new SpeechSynthesisUtterance(txt);
+  u.lang='en-US'; u.rate=1;
+  const vs=window.speechSynthesis.getVoices();
+  const en=vs.find(v=>v.lang&&v.lang.toLowerCase().startsWith('en'));
+  if(en) u.voice=en;
+  window.speechSynthesis.speak(u);
+}
+if('speechSynthesis' in window){ window.speechSynthesis.onvoiceschanged=()=>window.speechSynthesis.getVoices(); }
+
+// ===== DADOS DA LEITURA =====
+const BLOCOS = [
+ {
+  id:"b1", cor:"h-cian", emoji:"🌪️", titulo:"Painel 1 — Natural disasters (extreme weather)",
+  paragrafos:[
+   "Na Sala de Situação, a primeira missão é entender o que está acontecendo. <b>Our climate is changing</b> (o nosso clima está mudando). O <span class='keyword'>global warming</span> (aquecimento global) faz os <span class='keyword'>extreme weather events</span> ficarem mais comuns. Um evento climático extremo é quando o tempo está diferente do normal para aquela região ou época do ano. <button class='btn-audio' onclick=\"speak('Our climate is changing. Global warming is causing more extreme weather events.')\">🔊</button>",
+   "Vocabulário de desastres (p.86): <b>drought</b> (seca), <b>flood</b> (enchente), <b>global warming</b> (aquecimento global), <b>melting ice cap</b> (derretimento das calotas polares), <b>rising sea level</b> (elevação do nível do mar) e <b>wildfire</b> (incêndio florestal). <button class='btn-audio' onclick=\"speak('drought, flood, global warming, melting ice cap, rising sea level, wildfire')\">🔊</button>"
+  ],
+  completar:{cq:"Complete em inglês: a seca, a falta de chuva, chama-se ______.", antes:"", resp:["drought"], dica:"começa com 'dr' (seca)", fala:"drought"},
+  perguntas:[
+   {tipo:"conceitual", q:"Com as suas palavras, o que é um 'extreme weather event'?",
+    modelo:"É um evento climático extremo: quando o tempo fica diferente do normal para aquela região ou época (ex.: uma seca muito longa, uma enchente forte).",
+    chk:["Falei que o tempo fica fora do normal?","Dei a ideia de clima/tempo extremo?"]},
+   {tipo:"aplicacao", q:"Escreva em inglês o nome de DOIS desastres naturais e a tradução de cada um.",
+    modelo:"Ex.: 'flood' (enchente) e 'wildfire' (incêndio florestal). Qualquer dois da lista servem (drought, flood, global warming, melting ice cap, rising sea level, wildfire).",
+    chk:["Citei dois em inglês?","Coloquei a tradução de cada um?"]},
+   {tipo:"aplicacao", q:"Escreva uma frase sua, em inglês, começando com 'Global warming...' sobre o clima.",
+    modelo:"Ex.: 'Global warming is a big problem' ou 'Global warming causes floods and droughts'. O importante é usar 'Global warming' + uma ideia sobre o clima.",
+    chk:["Comecei com 'Global warming'?","Minha frase fala do clima/desastres?"]}
+  ]
+ },
+ {
+  id:"b2", cor:"h-amar", emoji:"📣", titulo:"Painel 2 — Climate activism",
+  paragrafos:[
+   "Muita gente decide agir. Quem luta por mudanças sociais é um <span class='keyword'>activist</span> (ativista). Um <b>climate activist</b> é alguém que luta pelo meio ambiente. <button class='btn-audio' onclick=\"speak('People who fight for social changes are activists. A climate activist fights for the environment.')\">🔊</button>",
+   "Essa luta pode virar um <span class='keyword'>protest</span> (protesto) e, quando muita gente se junta, pode começar uma <span class='keyword'>revolution</span> (revolução). Palavras-chave (p.86): <b>activist(s)</b> (ativista), <b>protest</b> (protesto / protestar), <b>revolution</b> (revolução). <button class='btn-audio' onclick=\"speak('activist, protest, revolution')\">🔊</button>"
+  ],
+  completar:{cq:"Complete em inglês: a pessoa que luta pelo meio ambiente é um climate ______.", antes:"climate", resp:["activist"], dica:"ativista, em inglês", fala:"climate activist"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Explique, com suas palavras, a diferença entre 'activist', 'protest' e 'revolution'.",
+    modelo:"O 'activist' é a pessoa que luta por uma causa; o 'protest' é o ato de protestar (uma manifestação); a 'revolution' é uma grande mudança que acontece quando muita gente age junto.",
+    chk:["Disse que activist é a pessoa?","Diferenciei protest (ato) de revolution (grande mudança)?"]},
+   {tipo:"aplicacao", q:"Escreva em inglês uma frase sua usando a palavra 'activist'.",
+    modelo:"Ex.: 'I am a climate activist' ou 'She is an activist for the environment'. O importante é usar 'activist' numa frase com sentido.",
+    chk:["Usei a palavra 'activist'?","Minha frase faz sentido?"]},
+   {tipo:"conceitual", q:"O que faz um 'climate activist'? Responda com suas palavras.",
+    modelo:"É uma pessoa que luta/defende o meio ambiente, tentando combater as mudanças climáticas (por exemplo, participando de protestos).",
+    chk:["Falei que luta pelo meio ambiente?","Liguei ao clima/mudanças climáticas?"]}
+  ]
+ },
+ {
+  id:"b3", cor:"h-red", emoji:"🚨", titulo:"Painel 3 — Consequences & early warning",
+  paragrafos:[
+   "Na central de alertas, estudamos as <span class='keyword'>consequences</span> (consequências) dos desastres (p.90): <b>complete destruction</b> (destruição completa), <b>illness</b> (doença), <b>loss of crops</b> (perda de plantações), <b>loss of natural habitats</b> (perda de habitats naturais), <b>loss of property</b> (perda de bens) e <b>personal injury</b> (ferimento pessoal). <button class='btn-audio' onclick=\"speak('complete destruction, illness, loss of crops, loss of natural habitats, loss of property, personal injury')\">🔊</button>",
+   "Para reduzir os estragos existe um <span class='keyword'>early warning system</span> (sistema de alerta antecipado). As quatro ações desse sistema são: <b>monitor</b> (monitorar), <b>assess risk</b> (avaliar o risco), <b>communicate</b> (comunicar) e <b>respond</b> (responder/agir). <button class='btn-audio' onclick=\"speak('An early warning system: monitor, assess risk, communicate, respond.')\">🔊</button>"
+  ],
+  completar:{cq:"Complete em inglês: uma doença causada por um desastre é uma ______.", antes:"", resp:["illness"], dica:"doença, em inglês (começa com 'ill')", fala:"illness"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Escreva em inglês DUAS consequências de um desastre natural, com a tradução.",
+    modelo:"Ex.: 'loss of crops' (perda de plantações) e 'personal injury' (ferimento pessoal). Qualquer duas da lista servem.",
+    chk:["Citei duas em inglês?","Coloquei a tradução de cada uma?"]},
+   {tipo:"conceitual", q:"Para que serve um 'early warning system'? Responda com suas palavras.",
+    modelo:"Serve para avisar as pessoas antes (ou no começo) de um desastre, para reduzir os estragos — monitorando, avaliando o risco, comunicando e respondendo a tempo.",
+    chk:["Falei que serve para avisar/reduzir estragos?","Liguei a desastre/alerta?"]},
+   {tipo:"aplicacao", q:"Imagine uma enchente (flood) na sua cidade. Escreva uma consequência dela (pode ser em inglês ou português).",
+    modelo:"Resposta pessoal. Ex.: 'loss of property' (perda de bens) porque a água estraga as casas; ou 'personal injury' se alguém se machuca. Vale qualquer consequência coerente com uma enchente.",
+    chk:["Escolhi uma consequência?","Ela combina com uma enchente?"]}
+  ]
+ },
+ {
+  id:"b4", cor:"h-cian", emoji:"✅", titulo:"Painel 4 — Verb To Be: affirmative (am/is/are)",
+  paragrafos:[
+   "Toda comunicação da Sala de Situação usa o <span class='keyword'>verb to be</span>. Ele tem três formas no presente: <b>am</b> (só com I), <b>is</b> (com he, she, it) e <b>are</b> (com you, we, they). Usamos o to be para falar de pessoas e coisas — sentimentos, profissões, objetos, lugares e nacionalidades. <button class='btn-audio' onclick=\"speak('I am, he is, she is, it is, you are, we are, they are.')\">🔊</button>",
+   "Exemplos do livro (p.91): <b>I am</b> a climate activist. <b>He is</b> aware of the dangers. <b>It is</b> dangerous to go outside during bad weather. <b>They are</b> installing an early warning system. <b>We are</b> part of the eco-team at school. <button class='btn-audio' onclick=\"speak('I am a climate activist. He is aware of the dangers. They are installing an early warning system.')\">🔊</button>"
+  ],
+  completar:{cq:"Complete com am / is / are: 'Floods and droughts ______ effects of climate change.'", antes:"Floods and droughts", resp:["are"], dica:"o sujeito está no plural", fala:"Floods and droughts are effects of climate change"},
+  perguntas:[
+   {tipo:"conceitual", q:"Quando usamos am, is e are? Explique com suas palavras.",
+    modelo:"Usamos 'am' só com I; 'is' com he, she e it (singular); 'are' com you, we e they (plural e com 'you').",
+    chk:["Liguei 'am' ao I?","Liguei 'is' ao singular (he/she/it) e 'are' ao plural (you/we/they)?"]},
+   {tipo:"aplicacao", q:"Escreva uma frase sua, em inglês, sobre você usando 'I am'.",
+    modelo:"Resposta pessoal. Ex.: 'I am a student' ou 'I am worried about the climate'. O importante é usar 'I am' + uma informação sua.",
+    chk:["Usei 'I am'?","Completei com uma informação sobre mim?"]},
+   {tipo:"aplicacao", q:"Complete e reescreva com o to be certo: 'The sea level ___ rising' e 'The glaciers ___ melting'.",
+    modelo:"'The sea level IS rising' (singular → is) e 'The glaciers ARE melting' (plural → are).",
+    chk:["Usei 'is' para 'the sea level' (singular)?","Usei 'are' para 'the glaciers' (plural)?"]}
+  ]
+ },
+ {
+  id:"b5", cor:"h-amar", emoji:"❓", titulo:"Painel 5 — Verb To Be: questions & short answers",
+  paragrafos:[
+   "Para PERGUNTAR com o to be, a gente <span class='keyword'>inverte</span>: o verbo (am/is/are) vem ANTES do sujeito. Ex. (p.91): <b>Are</b> you an activist, too? <b>Is</b> he aware of the dangers? <b>Is</b> it dangerous to go outside? <b>Are</b> they installing an early warning system? <button class='btn-audio' onclick=\"speak('Are you an activist, too? Is he aware of the dangers? Are they installing an early warning system?')\">🔊</button>",
+   "As <span class='keyword'>short answers</span> (respostas curtas): Yes, I <b>am</b>. / No, I'm not. · Yes, he <b>is</b>. / No, he <b>isn't</b>. · Yes, it <b>is</b>. / No, it <b>isn't</b>. · Yes, they <b>are</b>. / No, they <b>aren't</b>. Cuidado: na resposta curta afirmativa NÃO se contrai (é 'Yes, I am', nunca 'Yes, I'm'). <button class='btn-audio' onclick=\"speak('Are you an activist? Yes, I am. No, I am not.')\">🔊</button>"
+  ],
+  completar:{cq:"Faça a pergunta: '______ you worried about climate change?'", antes:"", resp:["are"], dica:"pergunta com 'you' → verbo no começo", fala:"Are you worried about climate change?"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Transforme em PERGUNTA: 'He is aware of the dangers.' Escreva a pergunta em inglês.",
+    modelo:"'Is he aware of the dangers?' — invertemos: o 'is' vai para o começo, antes do 'he'.",
+    chk:["Comecei a pergunta com 'Is'?","Coloquei 'he' depois do verbo?"]},
+   {tipo:"aplicacao", q:"Responda em inglês com short answer: 'Are you part of the eco-team?' (responda como quiser, sim ou não).",
+    modelo:"Afirmativa: 'Yes, I am.' Negativa: 'No, I'm not.' O importante é a forma certa (afirmativa não contrai; negativa é I'm not).",
+    chk:["Usei 'Yes, I am' ou 'No, I'm not'?","Escrevi a short answer certinha?"]},
+   {tipo:"conceitual", q:"O que muda na frase quando a gente transforma uma afirmação do to be em pergunta?",
+    modelo:"A gente inverte a ordem: o verbo (am/is/are) passa para o começo, antes do sujeito. Ex.: 'You are...' vira 'Are you...?'.",
+    chk:["Falei que o verbo vai para o começo?","Mostrei que o verbo troca de lugar com o sujeito?"]}
+  ]
+ },
+ {
+  id:"b6", cor:"h-red", emoji:"🚫", titulo:"Painel 6 — Verb To Be: negative forms",
+  paragrafos:[
+   "Para dizer que algo NÃO é verdade, a gente acrescenta <span class='keyword'>not</span> ao to be (p.94): <b>I am not</b> / I'm not · <b>He is not</b> / he <b>isn't</b> / he's not · <b>We are not</b> / we <b>aren't</b> / we're not. <button class='btn-audio' onclick=\"speak('I am not. He is not. We are not.')\">🔊</button>",
+   "A gente pode encurtar para <b>isn't</b> (is not) e <b>aren't</b> (are not). Com o 'I', a forma curta é <b>I'm not</b> (não existe 'amn't'). Nas respostas curtas negativas: No, she <b>isn't</b>. / No, they <b>aren't</b>. <button class='btn-audio' onclick=\"speak('She is not a singer. They are not students. No, she is not.')\">🔊</button>"
+  ],
+  completar:{cq:"Complete a negativa curta: 'Recycling ______ a waste of time.' (não é)", antes:"Recycling", resp:["isn't","is not"], dica:"singular → is + not", fala:"Recycling isn't a waste of time"},
+  perguntas:[
+   {tipo:"aplicacao", q:"Passe para a NEGATIVA: 'Global warming is a big problem.' (use isn't).",
+    modelo:"'Global warming isn't a big problem.' (ou 'is not'). Acrescentamos 'not' ao 'is'. (Obs.: na vida real, o livro mostra que global warming É um problema — aqui o exercício é só treinar a forma.)",
+    chk:["Usei 'isn't' (ou 'is not')?","Mantive o resto da frase igual?"]},
+   {tipo:"aplicacao", q:"Escreva uma frase sua, em inglês, na NEGATIVA, usando 'aren't'.",
+    modelo:"Ex.: 'The glaciers aren't safe' ou 'We aren't ready for a flood'. O importante é usar 'aren't' com um sujeito plural (you/we/they).",
+    chk:["Usei 'aren't'?","O sujeito é plural (you/we/they)?"]},
+   {tipo:"conceitual", q:"Como a gente forma a negativa do verb to be? Explique com suas palavras.",
+    modelo:"A gente coloca 'not' depois do verbo (am/is/are). Pode encurtar: is not → isn't, are not → aren't; com I fica 'I'm not'.",
+    chk:["Falei que acrescenta 'not' ao to be?","Citei as formas curtas isn't / aren't?"]}
+  ]
+ }
+];
+
+// ===== ESTADO / SALVAMENTO =====
+const KEY="ing6sj_dis_vtb_leitura_v1";
+let store={};
+const mem={};
+function load(){
+  try{ const raw=localStorage.getItem(KEY); if(raw) store=JSON.parse(raw); }
+  catch(e){ try{ store=mem[KEY]?JSON.parse(mem[KEY]):{}; }catch(_){ store={}; } }
+  if(!store.blocos) store.blocos={};
+}
+function save(){
+  store.quando=new Date().toLocaleString('pt-BR');
+  const raw=JSON.stringify(store);
+  try{ localStorage.setItem(KEY,raw); }catch(e){ mem[KEY]=raw; }
+  const el=document.getElementById('saveInfo'); if(el) el.textContent="💾 Salvo "+store.quando;
+}
+
+// ===== ANTICÓPIA =====
+function normWords(s){
+  return (s||"").toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'')
+    .replace(/[^a-z0-9\s]/g,' ').split(/\s+/).filter(Boolean);
+}
+function hasRun(hay,seq){
+  if(seq.length===0) return false;
+  for(let i=0;i+seq.length<=hay.length;i++){
+    let ok=true;
+    for(let j=0;j<seq.length;j++){ if(hay[i+j]!==seq[j]){ok=false;break;} }
+    if(ok) return true;
+  }
+  return false;
+}
+function detectTranscricao(answer, blockText, questionText){
+  const a=normWords(answer), b=normWords(blockText), q=normWords(questionText);
+  const n=a.length;
+  if(n<5) return {transcrita:false, maxRun:0, cov:0};
+  let maxRun=0; const covered=new Array(n).fill(false);
+  for(let i=0;i<n;i++){
+    let len=0;
+    for(let l=1;i+l<=n;l++){ if(hasRun(b,a.slice(i,i+l))) len=l; else break; }
+    if(len>=1){
+      const seg=a.slice(i,i+len);
+      const inQ = len>=4 && hasRun(q,seg);
+      if(!inQ){
+        if(len>maxRun) maxRun=len;
+        if(len>=5){ for(let k=i;k<i+len;k++) covered[k]=true; }
+      }
+    }
+  }
+  const cov = covered.filter(Boolean).length / n;
+  return {transcrita:(maxRun>=8 || cov>0.6), maxRun, cov};
+}
+
+// ===== RENDER =====
+function blockPlainText(bl){
+  return bl.paragrafos.map(p=>p.replace(/<[^>]+>/g,' ')).join(' ');
+}
+function st(bid){ if(!store.blocos[bid]) store.blocos[bid]={perg:{},conferido:false}; return store.blocos[bid]; }
+function escapeHtml(s){return (s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+function render(){
+  const cont=document.getElementById('blocos'); cont.innerHTML="";
+  BLOCOS.forEach((bl,idx)=>{
+    const s=st(bl.id);
+    const prev = idx===0 ? true : st(BLOCOS[idx-1].id).conferido;
+    const locked = !prev && !s.conferido;
+    const div=document.createElement('div');
+    div.className="block"+(locked?" locked":"");
+    let statusTxt = s.conferido ? blockStatusLabel(bl) : "";
+    let html=`<div class="block-head ${bl.cor}"><span>${bl.emoji} ${bl.titulo}</span><span class="block-status">${statusTxt}</span></div>`;
+    html+=`<div class="block-body">`;
+    if(locked){
+      html+=`<p><i>🔒 Confira o painel anterior para abrir este.</i></p>`;
+    }else{
+      html+=`<div class="txt">${bl.paragrafos.map(p=>`<p>${p}</p>`).join("")}</div>`;
+      if(bl.completar){
+        const cv=(s.completar&&s.completar.val)||"";
+        html+=`<div class="completar">`;
+        html+=`<div class="cq">✏️ Completar: ${bl.completar.cq}</div>`;
+        html+=`<input id="${bl.id}_comp" value="${escapeHtml(cv)}" placeholder="escreva aqui">`;
+        html+=`<button class="ck" onclick="checarComp('${bl.id}')">Conferir</button>`;
+        html+=`<button class="btn-audio" onclick="speak('${bl.completar.fala.replace(/'/g,"\\'")}')">🔊 Ouvir a frase</button>`;
+        html+=`<div class="fb" id="${bl.id}_compfb"></div>`;
+        html+=`</div>`;
+      }
+      bl.perguntas.forEach((pg,qi)=>{
+        const ps=s.perg[qi]||{};
+        const red = ps.transcrita ? " red":"";
+        const tag = pg.tipo==="conceitual" ? `<span class="tag tag-con">conceito</span>` : `<span class="tag tag-apl">aplicação</span>`;
+        html+=`<div class="q${red}" id="${bl.id}_q${qi}">`;
+        html+=`${tag}<label>${qi+1}) ${pg.q}</label>`;
+        html+=`<textarea id="${bl.id}_t${qi}" oninput="onType('${bl.id}',${qi})">${escapeHtml(ps.resp||"")}</textarea>`;
+        html+=`<div class="alert copy" id="${bl.id}_copy${qi}" style="display:none"></div>`;
+        html+=`<div class="alert redwarn" id="${bl.id}_red${qi}" style="display:${ps.transcrita?'block':'none'}">🔴 Esta resposta ficou muito parecida com o texto. Tente reescrever com as suas palavras — isso limpa a marca automaticamente.</div>`;
+        html+=`<div class="modelo${s.conferido?' show':''}" id="${bl.id}_m${qi}">`;
+        html+=`<div class="mtitle">✅ Resposta modelo</div><div>${pg.modelo}</div>`;
+        html+=`<div class="chk">`;
+        pg.chk.forEach((c,ci)=>{
+          const v=(ps.chk&&ps.chk[ci])||"";
+          html+=`<div class="cline"><span>${c}</span>`+
+            `<button class="${v==='sim'?'sel-sim':''}" onclick="setChk('${bl.id}',${qi},${ci},'sim')">Sim</button>`+
+            `<button class="${v==='nao'?'sel-nao':''}" onclick="setChk('${bl.id}',${qi},${ci},'nao')">Não</button></div>`;
+        });
+        html+=`</div></div>`;
+        html+=`</div>`;
+      });
+      html+=`<button class="conferir" id="${bl.id}_btn" onclick="conferir('${bl.id}')">${s.conferido?'✔ Conferido — conferir de novo':'Conferir painel'}</button>`;
+    }
+    html+=`</div>`;
+    div.innerHTML=html;
+    cont.appendChild(div);
+  });
+  atualizarRevisar();
+}
+
+function blockStatusLabel(bl){
+  const s=st(bl.id); let anyNao=false, anyRed=false;
+  bl.perguntas.forEach((pg,qi)=>{
+    const ps=s.perg[qi]||{};
+    if(ps.transcrita) anyRed=true;
+    (pg.chk||[]).forEach((c,ci)=>{ if(ps.chk&&ps.chk[ci]==='nao') anyNao=true; });
+  });
+  return (anyNao||anyRed) ? "🔁 revisar" : "✅ ok";
+}
+
+function norm(s){ return (s||"").toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9'\s]/g,'').trim(); }
+function checarComp(bid){
+  const bl=BLOCOS.find(b=>b.id===bid); const s=st(bid);
+  const val=document.getElementById(bid+'_comp').value;
+  if(!s.completar) s.completar={};
+  s.completar.val=val;
+  const fb=document.getElementById(bid+'_compfb');
+  const acertou = bl.completar.resp.some(r=>norm(r)===norm(val));
+  if(acertou){ fb.className="fb ok"; fb.textContent="✅ Very good! Resposta certa."; s.completar.ok=true; }
+  else{ fb.className="fb no"; fb.textContent="❌ Ainda não. Dica: "+bl.completar.dica+". (Tente de novo!)"; s.completar.ok=false; }
+  save();
+}
+
+function onType(bid,qi){
+  const s=st(bid); if(!s.perg[qi]) s.perg[qi]={};
+  const val=document.getElementById(bid+'_t'+qi).value;
+  s.perg[qi].resp=val;
+  if(s.perg[qi].transcrita){
+    const bl=BLOCOS.find(b=>b.id===bid); const pg=bl.perguntas[qi];
+    const d=detectTranscricao(val, blockPlainText(bl), pg.q);
+    if(!d.transcrita){
+      s.perg[qi].transcrita=false;
+      const q=document.getElementById(bid+'_q'+qi); if(q) q.classList.remove('red');
+      const rw=document.getElementById(bid+'_red'+qi); if(rw) rw.style.display='none';
+    }
+  }
+  save(); atualizarRevisar();
+}
+
+function setChk(bid,qi,ci,val){
+  const s=st(bid); if(!s.perg[qi]) s.perg[qi]={}; if(!s.perg[qi].chk) s.perg[qi].chk={};
+  s.perg[qi].chk[ci]=val; save(); render();
+}
+
+function conferir(bid){
+  const bl=BLOCOS.find(b=>b.id===bid); const s=st(bid);
+  const blockText=blockPlainText(bl);
+  for(let qi=0;qi<bl.perguntas.length;qi++){
+    const v=(document.getElementById(bid+'_t'+qi).value||"").trim();
+    if(v.length<3){ showMini(bid, "Preencha as 3 respostas (pelo menos 3 letras cada) antes de conferir. 💪"); return; }
+  }
+  let bloqueio=false;
+  for(let qi=0;qi<bl.perguntas.length;qi++){
+    const pg=bl.perguntas[qi]; const ps=s.perg[qi]||(s.perg[qi]={});
+    const val=document.getElementById(bid+'_t'+qi).value;
+    ps.resp=val;
+    const copyEl=document.getElementById(bid+'_copy'+qi);
+    const d=detectTranscricao(val, blockText, pg.q);
+    if(d.transcrita){
+      if(!ps.tentou){
+        ps.tentou=val;
+        copyEl.textContent="✏️ Boa parte da sua resposta está igual ao texto. Tente reescrever com as suas palavras — explique como se fosse para um amigo, sem olhar o texto. Pode ficar mais curto e simples, o que vale é ser SEU!";
+        copyEl.style.display="block";
+        bloqueio=true;
+      }else{
+        ps.transcrita=true;
+        copyEl.style.display="none";
+        const rw=document.getElementById(bid+'_red'+qi); if(rw) rw.style.display="block";
+        const q=document.getElementById(bid+'_q'+qi); if(q) q.classList.add('red');
+      }
+    }else{
+      ps.transcrita=false;
+      copyEl.style.display="none";
+      const rw=document.getElementById(bid+'_red'+qi); if(rw) rw.style.display="none";
+      const q=document.getElementById(bid+'_q'+qi); if(q) q.classList.remove('red');
+    }
+  }
+  save();
+  if(bloqueio){ return; }
+  s.conferido=true;
+  save(); render();
+}
+
+function showMini(bid,msg){
+  const copyEl=document.getElementById(bid+'_copy0');
+  if(copyEl){ copyEl.textContent=msg; copyEl.style.display="block"; setTimeout(()=>{copyEl.style.display="none";},4000); }
+}
+
+function atualizarRevisar(){
+  const box=document.getElementById('revisarBox'); const ul=document.getElementById('revisarList');
+  ul.innerHTML=""; let n=0;
+  BLOCOS.forEach(bl=>{
+    const s=st(bl.id);
+    bl.perguntas.forEach((pg,qi)=>{
+      const ps=s.perg[qi]||{};
+      let motivo="";
+      if(ps.transcrita) motivo="resposta muito parecida com o texto";
+      let anyNao=false; (pg.chk||[]).forEach((c,ci)=>{ if(ps.chk&&ps.chk[ci]==='nao') anyNao=true; });
+      if(anyNao) motivo=motivo?motivo+" e algum 'não' na autoavaliação":"algum 'não' na autoavaliação";
+      if(motivo){ n++; const li=document.createElement('li'); li.innerHTML=`<b>${bl.titulo}</b>, pergunta ${qi+1} — ${motivo}.`; ul.appendChild(li); }
+    });
+  });
+  box.style.display = n>0 ? "block":"none";
+}
+
+// ===== EXPORTAR / IMPORTAR / ZERAR =====
+function exportar(){
+  const data=JSON.stringify(store,null,2);
+  const blob=new Blob([data],{type:"application/json"});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob);
+  a.download="leitura-ingles-6ano.json"; a.click();
+}
+function abrirImport(){ document.getElementById('importModal').style.display="flex"; }
+function fecharImport(){ document.getElementById('importModal').style.display="none"; }
+function fazerImport(){
+  try{ const t=document.getElementById('importText').value; const obj=JSON.parse(t); store=obj; if(!store.blocos)store.blocos={}; save(); render(); fecharImport(); }
+  catch(e){ document.getElementById('importText').value="⚠️ Texto inválido. Cole o conteúdo exportado.\n\n"+document.getElementById('importText').value; }
+}
+function zerar(){ store={blocos:{}}; try{ localStorage.removeItem(KEY); }catch(e){} save(); render(); }
+
+// ===== INÍCIO =====
+load(); render();
+if(store.quando){ document.getElementById('saveInfo').textContent="💾 Salvo "+store.quando; }
+</script>
+</body>
+</html>
